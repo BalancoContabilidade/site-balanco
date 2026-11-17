@@ -18,8 +18,8 @@
 <style>
 :root{
   /* Azul-marinho puxado para o azul + dourado da marca + azuis bem transparentes nos respiros */
-  --blue:#102D4A; --blue-deep:#102D4A; --blue-ink:#102D4A; --blue-2:#194563; --sky:#D5ECFE; --caption:#0D2740; --off:#F8F7F3;
-  --glass:#EAF0F6; --glass-2:rgba(16,45,74,.05); --glass-line:rgba(16,45,74,.13);
+  --blue:#102D4A; --blue-deep:#102D4A; --blue-ink:#102D4A; --blue-2:#194563; --sky:#D5ECFE; --caption:#0D2740; --blue-rgb:16,45,74; --bf:#102F4A; --bf-card:#173B59; --grad:var(--blue); --grad-bf:var(--bf); --panel:rgba(255,255,255,.06); --panel-line:rgba(232,206,145,.35); --off:#F8F7F3;
+  --glass:#EAF0F6; --glass-2:rgba(var(--blue-rgb),.05); --glass-line:rgba(var(--blue-rgb),.13);
   --gold:#E8CE91; --gold-deep:#A8844A;
   --ink:#16213A; --muted:#566079; --line:#E3E8F1; --paper:#FFFFFF;
   --display:"Playfair Display", Georgia, "Times New Roman", serif;
@@ -189,7 +189,7 @@ nav.menu a:hover{color:var(--gold)}
 .mapa{background:var(--blue);color:#fff;overflow:hidden}
 .mapa .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
 .mapa svg.br{width:100%;height:auto;max-width:560px;justify-self:center}
-.mapa .uf{fill:rgba(255,255,255,.13);stroke:#102D4A;stroke-width:1.2;transition:fill .2s}
+.mapa .uf{fill:rgba(255,255,255,.13);stroke:var(--blue);stroke-width:1.2;transition:fill .2s}
 .mapa .uf:hover{fill:rgba(255,255,255,.24)}
 .mapa .uf.ba{fill:url(#goldGrad)}
 .pin-pulse{fill:none;stroke:#fff;stroke-width:2;transform-origin:center;transform-box:fill-box;animation:pulse 2.2s ease-out infinite}
@@ -208,7 +208,7 @@ nav.menu a:hover{color:var(--gold)}
 .pillar{background:var(--glass);border-radius:16px;padding:16px}
 .pillar b{display:block;font-family:var(--display);font-size:1.15rem;color:var(--blue-deep)}
 .pillar span{font-size:.84rem;color:var(--muted)}
-.person{background:#fff;border:1px solid var(--glass-line);border-radius:28px;overflow:hidden;box-shadow:0 24px 50px rgba(8,38,74,.12)}
+.person{background:#fff;border:1px solid var(--glass-line);border-radius:28px;overflow:hidden;box-shadow:0 24px 50px rgba(var(--blue-rgb),.12)}
 .person{display:grid;grid-template-columns:200px 1fr;align-items:stretch}
 .person .ph{overflow:hidden;position:relative;background:#DCD8E0;min-height:260px}
 .person .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 30%}
@@ -235,7 +235,7 @@ nav.menu a:hover{color:var(--gold)}
 .cats button[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .post{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--glass-line);display:flex;flex-direction:column;text-align:left;padding:0;font:inherit;color:inherit;cursor:pointer;transition:transform .15s, box-shadow .15s}
-.post:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(8,38,74,.12)}
+.post:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(var(--blue-rgb),.12)}
 .post .cover{aspect-ratio:16/10;background:var(--blue);position:relative;overflow:hidden}
 .post .cover img{width:100%;height:100%;object-fit:cover;object-position:top}
 .post .cover .ph{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;font-family:var(--display);font-size:1.35rem;color:#F6F1E4;line-height:1.2}
@@ -248,7 +248,7 @@ nav.menu a:hover{color:var(--gold)}
 @media (max-width:980px){.posts{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.posts{grid-template-columns:1fr}}
 
-.reader{position:fixed;inset:0;z-index:60;background:rgba(5,26,53,.6);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:30px 14px}
+.reader{position:fixed;inset:0;z-index:60;background:rgba(var(--blue-rgb),.72);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:30px 14px}
 .reader.open{display:flex}
 .reader article{background:#fff;border-radius:22px;max-width:760px;width:100%;padding:38px clamp(20px,5vw,52px) 44px;position:relative}
 .reader .close{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:1.3rem;color:var(--blue-deep)}
@@ -319,6 +319,9 @@ footer.site h4{font-family:var(--body);font-size:.74rem;letter-spacing:.2em;text
 footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 footer.site a{text-decoration:none}
 footer.site a:hover{color:var(--gold)}
+footer.site .ig-link{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border:1px solid rgba(228,205,143,.45);border-radius:999px;color:var(--gold);font-weight:600;transition:background .2s,color .2s}
+footer.site .ig-link svg{width:18px;height:18px}
+footer.site .ig-link:hover{background:var(--gold);color:var(--blue)}
 footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;text-align:center;font-size:.78rem;color:#8E9BB5}
 @media (max-width:760px){footer.site .wrap{grid-template-columns:1fr}}
 
@@ -343,7 +346,7 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
 .dif{background:var(--blue);color:#fff;overflow:hidden}
 .dif-top{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;margin-bottom:40px}
 .dif svg.br{width:100%;height:auto;max-width:420px;justify-self:center}
-.dif .uf{fill:rgba(232,206,145,.32);stroke:#102D4A;stroke-width:1.2}
+.dif .uf{fill:rgba(232,206,145,.32);stroke:var(--blue);stroke-width:1.2}
 .dif .uf.ba{fill:url(#goldGrad)}
 .dif .pin-pulse{fill:none;stroke:#fff;stroke-width:2;transform-origin:center;transform-box:fill-box;animation:pulse 2.2s ease-out infinite}
 .dif .map-label{font-family:var(--body);font-size:14px;font-weight:600;fill:#fff}
@@ -399,7 +402,7 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
 .group.dim{opacity:.45}
 
 /* black com calendário */
-.bf{background:#102F4A;color:#fff;padding:80px 0;position:relative;overflow:hidden}
+.bf{background:var(--bf);color:#fff;padding:80px 0;position:relative;overflow:hidden}
 .bf .wrap{display:grid;grid-template-columns:1fr minmax(0,440px);gap:56px;align-items:center}
 .bf-l{display:grid;gap:14px;justify-items:start}
 .bf h2{font-size:clamp(2rem,4vw,3rem);color:#F6F1E4}
@@ -412,7 +415,7 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
 .bf-list li::before{content:"";width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);flex:none}
 .bf-ctas{margin-top:8px}
 .bf-link{color:var(--gold);font-size:.82rem;text-decoration:underline;text-underline-offset:3px}
-.cal{background:#173B59;border:1px solid rgba(228,205,143,.45);border-radius:24px;padding:28px;position:relative}
+.cal{background:var(--bf-card);border:1px solid rgba(228,205,143,.45);border-radius:24px;padding:28px;position:relative}
 .cal::before{content:"";position:absolute;inset:8px;border:1px solid rgba(228,205,143,.15);border-radius:18px;pointer-events:none}
 .cal-h{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid rgba(228,205,143,.35);padding-bottom:12px;margin-bottom:14px}
 .cal-m{font-family:var(--display);font-size:2rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.02em}
@@ -433,7 +436,7 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
 
 
 .bf-lab{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:6px}
-.bf-rules{width:100%;max-width:560px;border:1px solid rgba(232,206,145,.35);border-radius:14px;background:#173B59}
+.bf-rules{width:100%;max-width:560px;border:1px solid rgba(232,206,145,.35);border-radius:14px;background:var(--bf-card)}
 .bf-rules summary{cursor:pointer;list-style:none;padding:12px 44px 12px 16px;font-size:.88rem;font-weight:600;color:var(--gold);position:relative}
 .bf-rules summary::-webkit-details-marker{display:none}
 .bf-rules summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.2rem}
@@ -469,7 +472,7 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
 .free-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px;color:var(--blue);font-weight:600;font-size:.92rem}
 .free-list li{display:flex;gap:10px;align-items:center}
 .free-list li::before{content:"";width:8px;height:8px;border:1.5px solid var(--gold-deep);transform:rotate(45deg);flex:none}
-.free-form{box-shadow:0 20px 44px rgba(16,45,74,.14)}
+.free-form{box-shadow:0 20px 44px rgba(var(--blue-rgb),.14)}
 .free-form .chk{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.78rem;color:var(--muted)}
 .free-form .chk input{margin-top:3px;width:16px;height:16px;flex:none}
 .free-err{color:#C62828;font-size:.82rem;min-height:1em}
@@ -479,6 +482,43 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
 @media (max-width:860px){.free-card{grid-template-columns:1fr}}
 .wa-float{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.25)}
 .wa-float svg{width:30px;height:30px;color:#fff}
+
+
+/* degradê de marca */
+.hero,.contact,.dif,.mapa,.lp-side{background:var(--grad)}
+.bf{background:var(--grad-bf)}
+header.top{background:var(--blue)}
+/* ===== Pop-up de contato ===== */
+.lp{position:fixed;inset:0;z-index:70;background:rgba(var(--blue-rgb),.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:18px}
+.lp.open{display:flex;animation:lpIn .35s ease}
+@keyframes lpIn{from{opacity:0}to{opacity:1}}
+.lp-box{position:relative;width:min(980px,100%);max-height:calc(100vh - 36px);overflow:auto;display:grid;grid-template-columns:.9fr 1.1fr;border-radius:28px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.lp-side{position:relative;background:var(--blue);color:#fff;padding:40px 34px 0;display:flex;flex-direction:column;overflow:hidden;border-radius:28px 0 0 28px}
+.lp-side h3{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1;margin:0;color:#fff}
+.lp-side h3 em{color:var(--gold)}
+.lp-side p{color:#D5E3FF;margin:14px 0 0;font-size:.98rem}
+.lp-side figure{margin:auto 0 0;position:relative;padding-top:20px}
+.lp-side img{display:block;width:78%;max-width:300px;margin:0 auto;border-radius:22px 22px 0 0;aspect-ratio:4/4.4;object-fit:cover;object-position:top}
+.lp-side figcaption{position:absolute;left:12px;bottom:16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px);border-radius:12px;padding:8px 12px;font-size:.78rem}
+.lp-side figcaption b{display:block;font-size:.85rem}
+.lp-form{padding:34px 34px 26px}
+.lp-form h4{font-family:var(--display);font-size:1.25rem;line-height:1.3;color:var(--blue);margin:0}
+.lp-form .sub{color:var(--muted);margin:6px 0 18px;font-size:.92rem}
+.lp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.lp-grid .full{grid-column:1/-1}
+.lp-grid label{display:grid;gap:6px;font-size:.8rem;font-weight:600;color:var(--ink)}
+.lp-grid input,.lp-grid select{font:inherit;font-weight:400;font-size:.92rem;padding:12px 14px;border:1.5px solid #D9E2F2;border-radius:12px;background:#F6F8FD;color:var(--ink);width:100%}
+.lp-grid input:focus,.lp-grid select:focus{outline:none;border-color:var(--blue-2);background:#fff;box-shadow:0 0 0 3px rgba(var(--blue-rgb),.12)}
+.lp-chk{display:flex;gap:10px;align-items:flex-start;font-size:.76rem;color:var(--muted);margin-top:14px}
+.lp-chk input{margin-top:2px;width:16px;height:16px;flex:none}
+.lp-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.lp-btns .btn,.lp-call{justify-content:center;width:100%;white-space:nowrap;font-size:.92rem;padding:14px 16px}
+.lp-call{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--blue);color:var(--blue);border-radius:999px;font-weight:600;text-decoration:none;padding:13px 18px;background:#fff;cursor:pointer;font:inherit;font-weight:600}
+.lp-call:hover{background:var(--blue);color:#fff}
+.lp-err{color:#C62828;font-size:.8rem;margin-top:10px;min-height:1em}
+.lp-close{position:absolute;top:14px;right:16px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:#EEF2FA;color:var(--blue);font-size:1.5rem;line-height:1;cursor:pointer}
+.lp-note{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px}
+@media (max-width:780px){.lp-box{grid-template-columns:1fr;border-radius:22px}.lp-side{border-radius:22px 22px 0 0;padding:26px 24px 22px}.lp-side figure{display:none}.lp-form{padding:24px 22px 22px}.lp-grid,.lp-btns{grid-template-columns:1fr}.lp-close{background:rgba(255,255,255,.18);color:#fff}}
 </style>
 </head>
 <body>
@@ -851,12 +891,43 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
     </div>
     <div>
       <h4>Contato</h4>
-      <ul><li>(75) 99199-0372</li><li>contato@balancocontabilidade.com</li><li><a href="https://www.instagram.com/balancocontabilidade_">@balancocontabilidade_</a></li><li><a href="https://www.instagram.com/contadoragabrielle_">@contadoragabrielle_</a></li></ul>
+      <ul class="fcontact"><li><a href="tel:+5575991990372">(75) 99199-0372</a></li><li><a href="mailto:contato@balancocontabilidade.com">contato@balancocontabilidade.com</a></li><li><a class="ig-link" href="https://www.instagram.com/balancocontabilidade_" target="_blank" rel="noopener" aria-label="Instagram da Balanço Contabilidade"><svg><use href="#i-ig"/></svg>@balancocontabilidade_</a></li></ul>
     </div>
   </div>
   <div class="legal">© <span id="yr">2026</span> Balanço Contabilidade · Todos os direitos reservados</div>
 </footer>
 
+
+<div class="lp" id="lp" role="dialog" aria-modal="true" aria-labelledby="lpTitle">
+  <div class="lp-box">
+    <button class="lp-close" id="lpClose" aria-label="Fechar">×</button>
+    <div class="lp-side">
+      <h3 id="lpTitle">Encontrou o que <em>precisava?</em></h3>
+      <p>Se você está buscando o melhor caminho para o seu CNPJ, a gente pode te ajudar. Sem mistério e sem medo.</p>
+      <figure><img src="img/gabrielle-sobre.jpg" alt="Gabrielle Carvalho, contadora da Balanço Contabilidade"><figcaption><b>Gabrielle Carvalho</b>Contadora · Balanço Contabilidade</figcaption></figure>
+    </div>
+    <form class="lp-form" id="lpForm" novalidate>
+      <h4>Preencha o formulário e fale com uma especialista</h4>
+      <p class="sub">para encontrar a melhor solução para o seu negócio.</p>
+      <div class="lp-grid">
+        <label class="full">Nome<input id="lp-nome" autocomplete="name" placeholder="Digite seu nome"></label>
+        <label>E-mail<input id="lp-email" type="email" autocomplete="email" placeholder="exemplo@gmail.com"></label>
+        <label>Telefone / WhatsApp<input id="lp-tel" inputmode="tel" autocomplete="tel" placeholder="(DD) 90000-0000"></label>
+        <label>Estado<select id="lp-uf"><option value="">Selecione</option></select></label>
+        <label>Cidade<input id="lp-cidade" autocomplete="address-level2" placeholder="Ex.: Feira de Santana"></label>
+        <label>Qual serviço deseja?<select id="lp-serv"><option value="">Selecione</option><option>Aproveitar a Black (30% OFF)</option><option>Abrir minha empresa</option><option>Sair do MEI</option><option>Regularizar pendências</option><option>Trocar de contador</option><option>Contabilidade mensal</option><option>Planejamento tributário</option><option>Imposto de Renda / pessoa física</option><option>Outro assunto</option></select></label>
+        <label>Qual o seu tipo de negócio?<select id="lp-tipo"><option value="">Selecione</option><option>Ainda não tenho empresa</option><option>MEI</option><option>Simples Nacional</option><option>Lucro Presumido</option><option>Pessoa física</option><option>Não sei informar</option></select></label>
+      </div>
+      <label class="lp-chk"><input type="checkbox" id="lp-lgpd">Autorizo a Balanço Contabilidade a usar meus dados para entrar em contato sobre este atendimento (LGPD).</label>
+      <div class="lp-err" id="lpErr"></div>
+      <div class="lp-btns">
+        <button type="submit" class="btn btn-gold" data-via="wa"><svg><use href="#i-wa"/></svg>Falar por WhatsApp</button>
+        <button type="button" class="lp-call" id="lpCall" data-via="tel">📞 Falar por ligação</button>
+      </div>
+      <p class="lp-note">Atendimento digital em todo o Brasil · seg a sex, 9h às 17h30</p>
+    </form>
+  </div>
+</div>
 <a class="wa-float" data-wa="Olá! Vim pelo site da Balanço." href="#" aria-label="Falar no WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
 <div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="rTitle">
@@ -1014,6 +1085,42 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
   }
   form.addEventListener("input",upd); form.addEventListener("submit",function(e){e.preventDefault();}); upd();
   document.getElementById("yr").textContent=new Date().getFullYear();
+})();
+
+/* ===== Pop-up de contato ===== */
+(function(){
+  var lp=document.getElementById("lp"); if(!lp) return;
+  var KEY="balanco_lp_v1", shown=false;
+  function seen(){ try{ var t=+localStorage.getItem(KEY)||0; return Date.now()-t < 3*864e5; }catch(e){ return false; } }
+  function mark(){ try{ localStorage.setItem(KEY, String(Date.now())); }catch(e){} }
+  function open(){ if(shown||seen()) return; var r=document.getElementById("reader"); if(r && r.classList.contains("open")) return; shown=true; mark(); lp.classList.add("open"); document.body.style.overflow="hidden"; }
+  function close(){ lp.classList.remove("open"); document.body.style.overflow=""; }
+  window.openLeadPopup=function(){ shown=false; try{localStorage.removeItem(KEY);}catch(e){} open(); };
+  document.getElementById("lpClose").onclick=close;
+  lp.addEventListener("click",function(e){ if(e.target===lp) close(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") close(); });
+  setTimeout(open, 25000);
+  window.addEventListener("scroll",function(){ var h=document.documentElement; if((h.scrollTop+innerHeight)/h.scrollHeight>0.6) open(); },{passive:true});
+  document.addEventListener("mouseout",function(e){ if(!e.relatedTarget && e.clientY<8 && innerWidth>900) open(); });
+  var UF="AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO".split(" ");
+  var sel=document.getElementById("lp-uf"); UF.forEach(function(u){ var o=document.createElement("option"); o.textContent=u; if(u==="BA") o.selected=false; sel.appendChild(o); });
+  var tel=document.getElementById("lp-tel");
+  tel.addEventListener("input",function(){ var d=tel.value.replace(/\D/g,"").slice(0,11); var o=d; if(d.length>2) o="("+d.slice(0,2)+") "+d.slice(2); if(d.length>7) o="("+d.slice(0,2)+") "+d.slice(2,d.length-4)+"-"+d.slice(-4); tel.value=o; });
+  function go(via){
+    var g=function(id){ return document.getElementById(id).value.trim(); };
+    var nome=g("lp-nome"), em=g("lp-email"), t=g("lp-tel"), cid=g("lp-cidade"), uf=g("lp-uf"), tipo=g("lp-tipo"), serv=g("lp-serv"), err=document.getElementById("lpErr");
+    if(nome.length<2){ err.textContent="Digite seu nome, por favor."; return; }
+    if(t.replace(/\D/g,"").length<10){ err.textContent="Confira o seu WhatsApp com DDD."; return; }
+    if(!document.getElementById("lp-lgpd").checked){ err.textContent="Para continuar, marque a autorização de contato."; return; }
+    err.textContent="";
+    var local=[cid,uf].filter(Boolean).join("-");
+    try{ { fetch("https://script.google.com/macros/s/AKfycbw1S7YOPlnlLhRBZLl91mQqVwHwww8fEMwtbpowiNEmM3gbx4J8vF2wJypeeoLKPCP_Xw/exec",{method:"POST",mode:"no-cors",body:new URLSearchParams({nome:nome,doc:"",tel:t,lgpd:"sim",origem:("Pop-up · "+(serv||"-")+" · "+(tipo||"-")+" · "+(local||"-")).slice(0,60)})}); } }catch(x){}
+    if(via==="tel"){ location.href="tel:+5575991990372"; close(); return; }
+    var msg="Olá! Vim pelo site da Balanço. Meu nome é "+nome+"."+(serv?" Quero ajuda com: "+serv+".":"")+(tipo?" Tipo de negócio: "+tipo+".":"")+(local?" Sou de "+local+".":"")+(em?" Meu e-mail: "+em+".":"");
+    window.open("https://wa.me/5575991990372?text="+encodeURIComponent(msg),"_blank"); close();
+  }
+  document.getElementById("lpForm").addEventListener("submit",function(e){ e.preventDefault(); go("wa"); });
+  document.getElementById("lpCall").addEventListener("click",function(){ go("tel"); });
 })();
 </script>
 </body>
