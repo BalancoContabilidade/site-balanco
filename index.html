@@ -377,7 +377,7 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.08);padding:18px 20px;
 
 /* fios dourados */
 .eyebrow{display:flex;align-items:center;gap:12px}
-.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;flex:none}
+.eyebrow::before{content:none}
 .gold-div{display:flex;justify-content:center;align-items:center;padding:0 20px}
 .gold-div span{position:relative;width:min(1120px,100%);height:1px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent)}
 .gold-div span::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;background:var(--paper);border:1px solid var(--gold-deep);transform:translate(-50%,-50%) rotate(45deg)}
@@ -498,9 +498,9 @@ header.top{background:var(--blue)}
 @keyframes lpIn{from{opacity:0}to{opacity:1}}
 .lp-box{position:relative;width:min(980px,100%);max-height:calc(100vh - 36px);overflow:auto;display:grid;grid-template-columns:.9fr 1.1fr;border-radius:28px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.35)}
 .lp-side{position:relative;background:var(--blue);color:#fff;padding:40px 34px 0;display:flex;flex-direction:column;overflow:hidden;border-radius:28px 0 0 28px}
-.lp-side h3{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1;margin:0;color:#fff}
+.lp-side h3{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1;margin:0;color:#F2EEE4}
 .lp-side h3 em{color:var(--gold)}
-.lp-side p{color:#D5E3FF;margin:14px 0 0;font-size:.98rem}
+.lp-side p{color:#F2EEE4;margin:14px 0 0;font-size:.98rem}
 .lp-side figure{margin:auto 0 0;position:relative;padding-top:20px}
 .lp-side img{display:block;width:78%;max-width:300px;margin:0 auto;border-radius:22px 22px 0 0;aspect-ratio:4/4.4;object-fit:cover;object-position:top}
 .lp-side figcaption{position:absolute;left:12px;bottom:16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px);border-radius:12px;padding:8px 12px;font-size:.78rem}
@@ -523,6 +523,10 @@ header.top{background:var(--blue)}
 .lp-close{position:absolute;top:14px;right:16px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:#EEF2FA;color:var(--blue);font-size:1.5rem;line-height:1;cursor:pointer}
 .lp-note{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px}
 @media (max-width:780px){.lp-box{grid-template-columns:1fr;border-radius:22px}.lp-side{border-radius:22px 22px 0 0;padding:26px 24px 22px}.lp-side figure{display:none}.lp-form{padding:24px 22px 22px}.lp-grid,.lp-btns{grid-template-columns:1fr}.lp-close{background:rgba(255,255,255,.18);color:#fff}}
+
+/* Rótulos (eyebrow) no padrão: dourado escuro no fundo claro, dourado no fundo azul */
+html body .eyebrow{color:var(--gold-deep)}
+html body .on-blue .eyebrow,html body .hero .eyebrow,html body .contact .eyebrow,html body .dif .eyebrow,html body .bf .eyebrow,html body .black .eyebrow,html body .group.dark .eyebrow{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -888,7 +892,7 @@ header.top{background:var(--blue)}
     <div>
       <img src="img/logo-gold.png" alt="Balanço Contabilidade">
       <p class="motto">Contabilidade sem mistério.<br>Decisões sem medo.</p>
-      <div class="firm"><b>Balanço Contabilidade Consultiva Ltda</b><span>CNPJ 68.432.530/0001-42</span><span>CRC-BA PJ-008232/K</span></div>
+      <div class="firm"><b>Balanço Contabilidade Consultiva Ltda</b><span>CNPJ 68.432.530/0001-42</span><span>CRC nº BA-010079/O</span></div>
     </div>
     <div>
       <h4>Navegue</h4>
